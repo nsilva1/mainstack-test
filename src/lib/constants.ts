@@ -36,17 +36,21 @@ export const AppBarImages = [
     {
         imageURL: product,
         alt: 'Product 1',
+        tooltip: 'Link in Bio',
     },
     {
         imageURL: product2,
         alt: 'Product 2',
+        tooltip: 'Store',
     },
     {
         imageURL: product3,
         alt: 'Product 3',
+        tooltip: 'Media Kit',
     },
     {
         imageURL: product4,
         alt: 'Product 4',
+        tooltip: 'Invoicing',
     },
 ]
