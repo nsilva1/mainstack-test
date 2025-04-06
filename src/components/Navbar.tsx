@@ -7,7 +7,7 @@ import menu from '../assets/images/menu.svg'
 const Navbar = () => {
   return (
     <div className=''>
-        <nav className='fixed top-3 left-0 right-0 z-50 flex justify-between items-center bg-white shadow-lg p-4 rounded-full'>
+        <nav className='fixed top-3 left-4 right-4 z-50 flex justify-between items-center bg-white shadow-lg p-4 rounded-full'>
             <div className='cursor-pointer'>
                 <img src={logo} alt="logo" className='w-16 h-16' />
             </div>

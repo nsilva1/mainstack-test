@@ -3,6 +3,10 @@ import analytics from '../assets/images/analytics.svg';
 import payments from '../assets/images/payments.svg';
 import group from '../assets/images/group.svg';
 import apps from '../assets/images/apps.svg';
+import product from '../assets/images/product.svg'
+import product2 from '../assets/images/product2.svg'
+import product3 from '../assets/images/product3.svg'
+import product4 from '../assets/images/product4.svg'
 
 
 export const navLinks = [
@@ -25,5 +29,24 @@ export const navLinks = [
     {
         name: 'Apps',
         icon: apps,
+    },
+]
+
+export const AppBarImages = [
+    {
+        imageURL: product,
+        alt: 'Product 1',
+    },
+    {
+        imageURL: product2,
+        alt: 'Product 2',
+    },
+    {
+        imageURL: product3,
+        alt: 'Product 3',
+    },
+    {
+        imageURL: product4,
+        alt: 'Product 4',
     },
 ]
