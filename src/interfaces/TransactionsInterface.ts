@@ -16,11 +16,11 @@ export interface IMetadata {
 
 export interface IDeposit {
     amount: number;
-    metadata: IMetadata;
-    payment_reference: string;
+    metadata?: IMetadata;
+    payment_reference?: string;
     status: string;
     type: string;
     date: string;
 }
 
-export type ITransaction = IWithdrawal | IDeposit;
+export type ITransaction = IDeposit;
