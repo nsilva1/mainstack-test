@@ -7,16 +7,16 @@ import menu from '../assets/images/menu.svg'
 const Navbar = () => {
   return (
     <div className=''>
-        <nav className='fixed top-3 left-4 right-4 z-50 flex justify-between items-center bg-white shadow-lg p-4 rounded-full'>
+        <nav className='fixed top-3 left-4 right-4 z-50 flex justify-between items-center bg-white shadow-lg p-4 rounded-full h-16'>
             <div className='cursor-pointer'>
                 <img src={logo} alt="logo" className='w-16 h-16' />
             </div>
             <div>
                 <ul className='flex gap-8'>
                     {navLinks.map((link, index) => (
-                        <li key={index} className={`flex items-center gap-2 cursor-pointer ${link.name === 'Revenue' ? 'bg-black text-white p-3 rounded-full' : 'text-gray-400 hover:bg-gray-100 hover:rounded-full py-2 px-3'} `}>
+                        <li key={index} className={`flex items-center gap-2 cursor-pointer ${link.name === 'Revenue' ? 'bg-black text-white p-3 rounded-full' : 'text-[#56616B] hover:bg-gray-100 hover:rounded-full py-2 px-3'} `}>
                             <img src={link.icon} alt={link.name} className='w-6 h-6' />
-                            <span>{link.name}</span>
+                            <span className='font-semibold text-base leading-[24px] align-middle tracking-[-0.4px]'>{link.name}</span>
                         </li>
                     ))}
                 </ul>
