@@ -5,6 +5,7 @@ import info from '../assets/images/info.svg'
 import { WalletGraph } from './WalletGraph'
 import { Loader } from './Loader'
 import { formatNumber } from '../lib/helperFunctions'
+import { toast } from 'react-toastify'
 
 const Hero = () => {
     const [walletInfo, setWalletInfo] = useState<IWalletInfo>({
@@ -26,14 +27,13 @@ const Hero = () => {
 
     const fetchWalletInfo = async () => {
         setLoading(true)
-        try {
-            const response = await getWalletInfo()
+        getWalletInfo().then((response) => {
             setWalletInfo(response)
-        } catch (error) {
-            console.error("Error fetching wallet info:", error)
-        } finally {
+        }).catch((error) => {
+            toast.error(`Error fetching wallet info:` + error.message)
+        }).finally(() => {
             setLoading(false)
-        }
+        })
     }
 
     useEffect(() => {

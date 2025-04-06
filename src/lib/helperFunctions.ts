@@ -15,3 +15,9 @@ export const formatDate = (dateString: string): string => {
     const dateFormatter = new Intl.DateTimeFormat('en-US', options);
     return dateFormatter.format(date)
 }
+
+export const getInitials = (firstName: string, lastName: string): string => {
+    const firstInitial = firstName.trim().charAt(0).toUpperCase() ?? 'J'
+    const lastInitial = lastName.trim().charAt(0).toUpperCase() ?? 'D'
+    return `${firstInitial}${lastInitial}`
+}
