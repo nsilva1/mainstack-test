@@ -7,6 +7,8 @@ import menu from '../assets/images/menu.svg'
 import { UserProfileMenu } from './UserProfileMenu'
 import { IUserInfo } from '../interfaces/UserInterface'
 import { getUserInfo } from '../api/user'
+import { IoIosArrowDown } from "react-icons/io";
+import { NavbarAppsMenu } from './NavbarAppsMenu'
 
 const Navbar = () => {
     const [user, setUser] = useState<IUserInfo>({
@@ -15,6 +17,13 @@ const Navbar = () => {
         email: '',
     })
     const [showMenu, setShowMenu] = useState(false)
+    const [appMenuClicked, setAppMenuClicked] = useState(false)
+
+    const handleMenuClick = (linkName: string) => {
+        if (linkName === 'Apps') {
+            setAppMenuClicked((prev) => !prev)
+        }
+    }
 
     const fetchUserInfo = async () => {
         const userInfo = await getUserInfo()
@@ -35,12 +44,23 @@ const Navbar = () => {
             <div>
                 <ul className='flex gap-8'>
                     {navLinks.map((link, index) => (
-                        <li key={index} className={`flex items-center gap-2 cursor-pointer ${link.name === 'Revenue' ? 'bg-black text-white p-3 rounded-full' : 'text-[#56616B] hover:bg-gray-100 hover:rounded-full py-2 px-3'} `}>
-                            <img src={link.icon} alt={link.name} className='w-6 h-6' />
+                        <li onClick={() => handleMenuClick(link.name)} key={index} className={`flex items-center gap-2 cursor-pointer ${link.name === 'Revenue' ? 'bg-black text-white p-3 rounded-full' : appMenuClicked && link.name === 'Apps' ? 'bg-black text-white rounded-full hover:bg-black hover:text-white py-2 px-3' : 'text-[#56616B] hover:bg-gray-100 hover:rounded-full py-2 px-3'} `}>
+                            <img src={link.icon} alt={link.name} className={`w-6 h-6 ${appMenuClicked && link.name === 'Apps' ? 'filter brightness-0 invert' : ''}`} />
                             <span className='font-semibold text-base leading-[24px] align-middle tracking-[-0.4px]'>{link.name}</span>
+                            {
+                                appMenuClicked && link.name === 'Apps' && (
+                                    <div className='flex items-center gap-2'>
+                                        <span>Link in Bio</span>
+                                        <IoIosArrowDown />
+                                    </div>
+                                )
+                            }
                         </li>
                     ))}
                 </ul>
+                <div className={`${appMenuClicked ? 'flex' : 'hidden'} absolute top-20 right-1/4 min-w-[300px] z-50`}>
+                    <NavbarAppsMenu />
+                </div>
             </div>
             <div>
                 <div className='flex gap-4 items-center justify-center'>

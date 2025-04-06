@@ -54,3 +54,26 @@ export const AppBarImages = [
         tooltip: 'Invoicing',
     },
 ]
+
+export const NavbarAppsMenuItems = [
+    {
+        name: 'Link in Bio',
+        icon: product,
+        description: 'Manage your Link in Bio',
+    },
+    {
+        name: 'Store',
+        icon: product2,
+        description: 'Manage your Store activities',
+    },
+    {
+        name: 'Media Kit',
+        icon: product3,
+        description: 'Manage your Media Kit',
+    },
+    {
+        name: 'Invoicing',
+        icon: product4,
+        description: 'Manage your Invoices',
+    },
+]
