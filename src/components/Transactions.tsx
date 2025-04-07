@@ -8,10 +8,14 @@ import { formatNumber } from '../lib/helperFunctions';
 import credit from '../assets/images/credit.svg';
 import debit from '../assets/images/debit.svg';
 import { formatDate } from '../lib/helperFunctions';
+import { OffCanvasFilterMenu } from './OffCanvasFilterMenu';
 
 const Transactions = () => {
     const [transactions, setTransactions] = useState<ITransaction[]>([])
     const [loading, setLoading] = useState(false)
+    const [open, setOpen] = useState(false)
+
+    const close = () => setOpen(false)
 
     const fetchTransactions = async () => {
         setLoading(true)
@@ -29,15 +33,20 @@ const Transactions = () => {
         fetchTransactions()
     }, [])
 
+    let filterMenu = (
+        <OffCanvasFilterMenu open={open} close={close} />
+    );
+
   return (
     <div className='px-20'>
+        {filterMenu}
         <div className='flex justify-between items-center flex-wrap'>
             <div>
                 <h2 className='font-bold text-2xl leading-[32px] tracking-[-0.6px] text-black align-middle'>{transactions.length} Transactions</h2>
                 <p className='font-medium text-sm leading-[16px] tracking-[-0.2px] text-[#56616B] align-middle'>Your transactions for the last 7 days</p>
             </div>
             <div className='flex gap-4 items-center'>
-                <button className='bg-[#EFF1F6] py-3 px-6 rounded-full flex gap-2'>
+                <button onClick={() => setOpen(true)} className='bg-[#EFF1F6] py-3 px-6 rounded-full flex gap-2 cursor-pointer'>
                     <p className='font-semibold text-base leading-6 tracking-[-0.4px] align-middle'>Filter</p>
                     <img src={arrowDown} alt='Expand' className='text-[#131316] text-2xl' />
                 </button>
