@@ -38,7 +38,7 @@ const Transactions = () => {
     );
 
   return (
-    <div className='px-20'>
+    <div className='px-28'>
         {filterMenu}
         <div className='flex justify-between items-center flex-wrap'>
             <div>

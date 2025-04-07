@@ -41,7 +41,7 @@ const Hero = () => {
     }, [])
 
   return (
-    <div className='pt-40 px-20'>
+    <div className='pt-40 px-28'>
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
             <div className='col-span-2'>
                 <div className='flex gap-16 items-center'>

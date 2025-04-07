@@ -1,5 +1,7 @@
 import { useRef } from 'react'
 import { IoMdClose } from "react-icons/io";
+import { TransactionStatus } from './TransactionStatus';
+import { TransactionType } from './TransactionType';
 
 const OffCanvasFilterMenu = ({open, close}: {open: boolean, close: () => void}) => {
 
@@ -82,26 +84,13 @@ const OffCanvasFilterMenu = ({open, close}: {open: boolean, close: () => void}) 
               </div>
 
               {/* Transaction Type */}
-              <div>
-                <label className="block font-semibold text-base leading-6 tracking-[-0.4px] text-[#131316] mb-1.5">
-                  Transaction Type
-                </label>
-                 <select defaultValue="store,withdrawal" id="transaction-type-manual" className="w-full bg-[#EFF1F6] py-3.5 px-4 rounded-2xl">
-                     <option value="store">Store Transactions</option>
-                     <option value="withdrawal">Cash Withdrawal</option>
-                 </select>
+              <div className='w-full'>
+                <TransactionType label='Transaction Type' initialSelected={['Chargebacks','Cashbacks','Store Transactions','Withdrawals']} />
               </div>
 
               {/* Transaction Status */}
-              <div>
-                <label className="block font-semibold text-base leading-6 tracking-[-0.4px] text-[#131316] mb-1.5">
-                  Transaction Status
-                </label>
-                 <select defaultValue="successful" id="transaction-status-manual" className="w-full bg-[#EFF1F6] py-3.5 px-4 rounded-2xl" >
-                     <option value="successful">Successful</option>
-                     <option value="pending">Pending</option>
-                     <option value="failed">Failed</option>
-                 </select>
+              <div className='w-full'>
+                <TransactionStatus label="Transaction Status" initialSelected={['Successful','Pending','Failed']} />
               </div>
 
             </div>
