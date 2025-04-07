@@ -1,10 +1,9 @@
-import { Navbar } from "./components/Navbar"
-import { AppBar } from "./components/AppBar"
-import { Hero } from "./components/Hero"
-import { Transactions } from "./components/Transactions"
+import { Navbar } from './components/Navbar';
+import { AppBar } from './components/AppBar';
+import { Hero } from './components/Hero';
+import { Transactions } from './components/Transactions';
 
 function App() {
-
   return (
     <>
       <Navbar />
@@ -12,7 +11,7 @@ function App() {
       <Hero />
       <Transactions />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

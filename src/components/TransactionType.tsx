@@ -1,9 +1,22 @@
 import { useState, useEffect, useRef } from 'react';
 import { HiChevronUpDown, HiCheck } from 'react-icons/hi2';
 
-type StatusOption = 'Store Transactions' | 'Get Tipped' | 'Withdrawals' | 'Chargebacks' | 'Cashbacks' | 'Refer & Earn';
+type StatusOption =
+  | 'Store Transactions'
+  | 'Get Tipped'
+  | 'Withdrawals'
+  | 'Chargebacks'
+  | 'Cashbacks'
+  | 'Refer & Earn';
 
-const statusOptions: StatusOption[] = ['Store Transactions', 'Get Tipped', 'Withdrawals', 'Chargebacks', 'Cashbacks', 'Refer & Earn'];
+const statusOptions: StatusOption[] = [
+  'Store Transactions',
+  'Get Tipped',
+  'Withdrawals',
+  'Chargebacks',
+  'Cashbacks',
+  'Refer & Earn',
+];
 
 const TransactionType = ({
   label,
@@ -17,17 +30,13 @@ const TransactionType = ({
   onChange?: (selected: StatusOption[]) => void;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedStatuses, setSelectedStatuses] =
-    useState<StatusOption[]>(initialSelected);
+  const [selectedStatuses, setSelectedStatuses] = useState<StatusOption[]>(initialSelected);
   const containerRef = useRef<HTMLDivElement>(null);
 
   // --- Outside Click Handling ---
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        containerRef.current &&
-        !containerRef.current.contains(event.target as Node)
-      ) {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
         setIsOpen(false);
       }
     };
@@ -86,9 +95,7 @@ const TransactionType = ({
   return (
     <div className='relative' ref={containerRef}>
       {label && (
-        <label className='block text-sm font-medium leading-6 text-gray-900 mb-1'>
-          {label}
-        </label>
+        <label className='block text-sm font-medium leading-6 text-gray-900 mb-1'>{label}</label>
       )}
 
       <button
@@ -124,20 +131,14 @@ const TransactionType = ({
                 >
                   <div
                     className={`h-4 w-4 border rounded-sm flex items-center justify-center ${
-                      isSelected
-                        ? 'bg-[#131316] border-[#131316]'
-                        : 'border-gray-400'
+                      isSelected ? 'bg-[#131316] border-[#131316]' : 'border-gray-400'
                     }`}
                   >
                     {isSelected && <HiCheck />}
                   </div>
                 </span>
                 {/* Label Text */}
-                <span
-                  className={`block truncate ${
-                    isSelected ? 'font-semibold' : 'font-normal'
-                  }`}
-                >
+                <span className={`block truncate ${isSelected ? 'font-semibold' : 'font-normal'}`}>
                   {status}
                 </span>
               </li>
@@ -149,4 +150,4 @@ const TransactionType = ({
   );
 };
 
-export { TransactionType }
+export { TransactionType };

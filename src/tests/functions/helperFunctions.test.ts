@@ -1,9 +1,7 @@
-
 import { describe, it, expect } from 'vitest';
 import { formatNumber, formatDate, getInitials } from '../../lib/helperFunctions';
 
 describe('Helper Functions', () => {
-  
   describe('formatNumber', () => {
     it('should format positive integers with commas', () => {
       expect(formatNumber(1000)).toBe('1,000');
@@ -16,12 +14,11 @@ describe('Helper Functions', () => {
     });
 
     it('should format numbers with decimals', () => {
-      
-      expect(formatNumber(1234.56)).toMatch(/1,234\.56/); 
-      expect(formatNumber(12345.6789)).toMatch(/12,345\.679/); 
+      expect(formatNumber(1234.56)).toMatch(/1,234\.56/);
+      expect(formatNumber(12345.6789)).toMatch(/12,345\.679/);
     });
 
-     it('should handle zero', () => {
+    it('should handle zero', () => {
       expect(formatNumber(0)).toBe('0');
     });
 
@@ -30,7 +27,6 @@ describe('Helper Functions', () => {
       expect(formatNumber(-9876543210)).toBe('-9,876,543,210');
     });
   });
-
 
   describe('formatDate', () => {
     it('should format YYYY-MM-DD string to Mmm DD, YYYY', () => {
@@ -50,20 +46,20 @@ describe('Helper Functions', () => {
       expect(getInitials('olivier', 'jones')).toBe('OJ');
     });
 
-     it('should handle names with leading/trailing spaces', () => {
+    it('should handle names with leading/trailing spaces', () => {
       expect(getInitials('  Olivier  ', '  Jones  ')).toBe('OJ');
     });
 
     it('should handle missing first name', () => {
-       expect(getInitials('', 'Jones')).toBe('J'); 
+      expect(getInitials('', 'Jones')).toBe('J');
     });
 
     it('should handle missing last name', () => {
-       expect(getInitials('Olivier', '')).toBe('O');
+      expect(getInitials('Olivier', '')).toBe('O');
     });
 
-     it('should handle both names missing', () => {
-       expect(getInitials('', '')).toBe(''); 
+    it('should handle both names missing', () => {
+      expect(getInitials('', '')).toBe('');
     });
   });
 });
