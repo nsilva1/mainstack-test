@@ -17,7 +17,9 @@ export const formatDate = (dateString: string): string => {
 }
 
 export const getInitials = (firstName: string, lastName: string): string => {
-    const firstInitial = firstName.trim().charAt(0).toUpperCase() ?? 'J'
-    const lastInitial = lastName.trim().charAt(0).toUpperCase() ?? 'D'
-    return `${firstInitial}${lastInitial}`
+    if(firstName || lastName) {
+        return `${firstName.trim().charAt(0).toUpperCase()}${lastName.trim().charAt(0).toUpperCase()}`  
+    } else {
+        return ''
+    }
 }
